@@ -16,7 +16,7 @@ public class Activity {
         RestAssured.basePath = "/api/v1/products";
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.queryParam("value", "key");
-        Response response = RestAssured.get();
+        Response response = requestSpecification.request(Method.GET);
         System.out.println(response.getStatusCode());
         System.out.println(response.getHeader("content-type"));
         System.out.println(response.getBody().asString());
